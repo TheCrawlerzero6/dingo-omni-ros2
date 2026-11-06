@@ -44,5 +44,3 @@ rosbag2_*/
 *~
 .DS_Store
 Thumbs.db
-# Local helper scripts
-/borradores/
