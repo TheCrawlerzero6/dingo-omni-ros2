@@ -34,8 +34,12 @@ def world_to_robot(theta, dx, dy, dtheta):
     theta: robot orientation. dx, dy, dtheta: desired velocity in the world.
     Returns (vx, vy, w) in the robot frame.
     """
-    # >>> WRITE HERE <<<
-    raise NotImplementedError('complete world_to_robot() in self_controller.py')
+    # rotate the world velocity by -theta
+    c, s = math.cos(theta), math.sin(theta)
+    vx = c * dx + s * dy
+    vy = -s * dx + c * dy
+    w = dtheta
+    return vx, vy, w
 
 
 def inverse_kinematics(vx, vy, w):
@@ -44,8 +48,13 @@ def inverse_kinematics(vx, vy, w):
     Returns (w_fl, w_fr, w_rl, w_rr): front left, front right, rear left and
     rear right. Use R, LX and LY.
     """
-    # >>> WRITE HERE <<<
-    raise NotImplementedError('complete inverse_kinematics() in self_controller.py')
+    # same matrix as in the README
+    k = (LX + LY) * w
+    w_fl = (vx - vy - k) / R
+    w_fr = (vx + vy + k) / R
+    w_rl = (vx + vy - k) / R
+    w_rr = (vx - vy + k) / R
+    return w_fl, w_fr, w_rl, w_rr
 
 
 class SelfController(Node):

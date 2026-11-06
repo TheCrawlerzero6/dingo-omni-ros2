@@ -10,3 +10,39 @@ clearpath_ws/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Colcon workspace, built inside this repo
+/build/
+/install/
+/log/
+
+# Python
+*.egg-info/
+.pytest_cache/
+
+# ROS recordings
+rosbag2_*/
+*.db3
+*.mcap
+
+# Videos and delivery archives
+*.mp4
+*.mkv
+*.webm
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+
+# Logs
+*.log
+
+# Editors and system
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+# Local helper scripts
+/borradores/

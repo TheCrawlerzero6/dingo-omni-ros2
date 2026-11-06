@@ -120,4 +120,11 @@ FIGURES = {
                    .line(0.9, -0.8)                                          # R: leg
                    .line(0.4, 0)                                             # to the M
                    .line(0, 1.6).line(0.5, -0.8).line(0.5, 0.8).line(0, -1.6)),  # M
+    # quick tests for the controller
+    'test_adelante': lambda: Trajectory().line(1.0, 0),
+    'test_lateral': lambda: Trajectory().line(0, 1.0),
+    'test_giro': lambda: Trajectory().turn(360),
+    # desired vs odometry vs actual (P1.2)
+    'comparacion': lambda: (Trajectory().line(1.0, 0).diagonal(0.7, 45).arc(0.5, 180)
+                            .pause(1).turn(90).line(0, -0.8, rotate=-90)),
 }
